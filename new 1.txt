@@ -1,0 +1,11 @@
+Expecteed achievement =  הסבר על מדרגות סיווג של צמתים ביחס לציטוטים
+Approach
+1. Tracking Evolution Articles in Citation Networks
+2.  שיטת בנייה התחלתית (אינטבל זמן או אינטרבל מופעים + חפיפה)
+3. שיטת קבלת החלטה על cs ועל embedding size
+4. שיטת ns- Negative Sampling
+5. שיטת איתור Falling Stars , Beuty...
+6. הסבר המודל כולו
+7.  דיאגרמה  + אלגוריתם
+
+
