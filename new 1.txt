@@ -1,11 +1,9 @@
-Expecteed achievement =  הסבר על מדרגות סיווג של צמתים ביחס לציטוטים
-Approach
-1. Tracking Evolution Articles in Citation Networks
-2.  שיטת בנייה התחלתית (אינטבל זמן או אינטרבל מופעים + חפיפה)
-3. שיטת קבלת החלטה על cs ועל embedding size
-4. שיטת ns- Negative Sampling
-5. שיטת איתור Falling Stars , Beuty...
-6. הסבר המודל כולו
-7.  דיאגרמה  + אלגוריתם
-
-
+1. graph2vec
+2. DeepWalk
+3. Node2vec
+4. On the Linearity of Semantic Change: Investigating Meaning Variation via Dynamic Graph Models
+5. Dynamic Network Embeddings for Network Evolution Analysis
+6. Dynamic Bernoulli Embeddings for Language Evolution
+7. Continuous-Time Dynamic Network Embeddings
+8. Weisfeiler-Lehman
+9. Skip-Gram
