@@ -1,9 +1,58 @@
-1. graph2vec
-2. DeepWalk
-3. Node2vec
-4. On the Linearity of Semantic Change: Investigating Meaning Variation via Dynamic Graph Models
-5. Dynamic Network Embeddings for Network Evolution Analysis
-6. Dynamic Bernoulli Embeddings for Language Evolution
-7. Continuous-Time Dynamic Network Embeddings
-8. Weisfeiler-Lehman
-9. Skip-Gram
+
+
+(define MultiplyMatrix (λ(A B)
+  (buildProductRows A B 0 (len A))))
+
+(define buildProductRows (λ(A B i n)
+  (if (= i n)
+      '()
+      (cons (buildProductRow A B i 0 n)
+            (buildProductRows A B (+ i 1) n)))))
+
+(define buildProductRow (λ(A B i j n)
+  (if (= j n)
+      '() 
+      (cons (dotProduct (getRow A i)
+                         (getCol B j))
+            (buildProductRow A B i (+ j 1) n)))))
+
+(define dotProduct (λ(row col)
+  (if (or (null? row) (null? col))
+      0
+      (+ (* (car row) (car col))
+         (dotProduct (cdr row) (cdr col))))))
+
+(define getRow  (λ(mat i)
+  (if (= i 0)
+      (car mat)
+      (getRow (cdr mat) (- i 1)))))
+
+(define getCol (λ(mat j)
+  (if (null? mat)
+      '()
+      (cons (getElem (car mat) j)
+            (getCol (cdr mat) j)))))
+
+(define getElem (λ(row j)
+  (if (= j 0)
+      (car row)
+      (getElem (cdr row) (- j 1)))))
+
+(define multiplyListByNumber (λ(lst num)
+  (map (λ (x) (* x num)) lst)))
+  
+  
+(define multiplyMatrixByNumber (λ(mat num)
+  (if (null? mat)
+      '()
+      (cons (multiplyListByNumber (car mat) num)
+            (multiplyMatrixByNumber (cdr mat) num)))))
+
+(define getTermToDqNq (λ(APowerMatrix targetMatrix lst)
+  (if (null? lst)
+      '()
+      (cons (multiplyMatrixByNumber (MultiplyMatrix APowerMatrix targetMatrix) (car lst)) (getTermToDqNq APowerMatrix targetMatrix (cdr lst))))))
+
+
+(define termToNqDq (getTermToDqNq initialAPower matrix '(1)))
+
